@@ -55,7 +55,7 @@ vim ~/.emscripten
 第十行改成下面的内容
 
 ```
-LLVM_ROOT = os.path.expanduser(os.getenv('LLVM', '/usr/local/opt/emscripten/    libexec/llvm/bin')) # directory
+LLVM_ROOT = os.path.expanduser(os.getenv('LLVM', '/usr/local/opt/emscripten/libexec/llvm/bin')) # directory
 ```
 
 

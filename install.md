@@ -58,6 +58,11 @@ vim ~/.emscripten
 LLVM_ROOT = os.path.expanduser(os.getenv('LLVM', '/usr/local/opt/emscripten/libexec/llvm/bin')) # directory
 ```
 
+#### 安装cmake
+
+```
+brew install cmake
+```
 
 
 #### 如果你先安装Emscripten，后切换python，这种必须卸载Emscripten才可以。

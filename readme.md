@@ -3,7 +3,7 @@
 2. https://www.ibm.com/developerworks/cn/web/wa-lo-webassembly-status-and-reality/index.html
 3. https://kripken.github.io/emscripten-site/docs/getting_started/downloads.html
 4. https://github.com/mbasso/asm-dom(c++实现简版vdom)
-### 编译c++代码
+### 编译c++代码
 c++代码在hello.cc里，使用以下命令编译
 
 ```

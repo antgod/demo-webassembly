@@ -15,7 +15,7 @@ c++代码在helloworld.cpp里
 #### 直接编译
 
 ```bash
-emcc hello.cc -o hello.html
+emcc helloworld.cpp -o helloworld.js
 ```
 
 - 命令的安装请参考

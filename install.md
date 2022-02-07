@@ -20,7 +20,7 @@ vim ~/.bash_profile
 比如你的版本是3.7.0，那就替换成（替换前可以先去终端查看下路径是否存在）
 
 ```
-alias python="/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/bin/python3.7"
+alias python="/usr/local/Cellar/python@3.9/3.9.7/bin/python3.9"
 ```
 然后运行
 

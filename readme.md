@@ -1,3 +1,4 @@
+### 简介
 2012年，Mozilla 的工程师 Alon Zakai 在研究 LLVM 编译器时突发奇想：许多 3D 游戏都是用 C / C++ 语言写的，如果能将 C / C++ 语言编译成 JavaScript 代码，它们不就能在浏览器里运行了吗？众所周知，JavaScript 的基本语法与 C 语言高度相似。
 
 于是，他开始研究怎么才能实现这个目标，为此专门做了一个编译器项目 Emscripten。这个编译器可以将 C / C++ 代码编译成 JS 代码。
@@ -9,37 +10,52 @@
 4. https://github.com/mbasso/asm-dom(c++实现简版vdom)
 
 ### 编译c++代码
-c++代码在hello.cc里，使用以下命令编译
+c++代码在helloworld.cpp里
 
-```
+#### 直接编译
+
+```bash
 emcc hello.cc -o hello.html
 ```
 
-命令的安装请参考<a href="https://github.com/antgod/webassembly/blob/master/install.md">`install.md`</a>。
+- 命令的安装请参考
+<a href="https://github.com/antgod/webassembly/blob/master/install.md">`install.md`</a>。
 
+#### 容器内编译
+```bash
+docker run \
+  --rm \
+  -v $(pwd):/src \
+  -u $(id -u):$(id -g) \
+  emscripten/emsdk \
+  emcc helloworld.cpp -o helloworld.js
+```
+
+- 命令的安装请参考
+<a href="https://yuque.antfin.com/ait-fe/nlp/vmhwf1">`install.md`</a>。
 ### 运行
+#### 运行JS
 直接使用node或者服务器运行html都可以
-```
-node hello.js
+```bash
+node helloworld.js
 ```
 
 结果
 ```
-val2 == 42
+42
 ```
 
-或者启动服务器
-```
-npm -g http-server
-http-server
+#### 运行wasm
+```js
+fetch('./helloworld.wasm').then(response =>
+  response.arrayBuffer()
+).then(buffer =>{
+  return WebAssembly.compile(buffer)
+}).then(module =>{
+  return WebAssembly.instantiate(module, importObject)
+}).then(instance => {
+  debugger
+  console.log('instance.exports.main() :>> ', instance.exports.main());
+});
 ```
 
-浏览器直接访问: localhost:3000/hello.html即可
-
-结果
-```
-val2 == 42
-```
-
-### 性能报告
-to be continue...

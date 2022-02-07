@@ -10,23 +10,18 @@
 
 #### 切换系统默认python版本
 ```shell
-brew ungrade python
+brew upgrade python
 python3 -V
 vim ~/.bash_profile
 ```
 
 记录下刚才-V的版本号，在最后一行添加，并替换{version}位置的版本号：
 
-```
-alias python="/System/Library/Frameworks/Python.framework/Versions/{version}/bin/python{version}"
-```
-
 比如你的版本是3.7.0，那就替换成（替换前可以先去终端查看下路径是否存在）
 
 ```
-alias python="/System/Library/Frameworks/Python.framework/Versions/3.7/bin/python3.7"
+alias python="/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/bin/python3.7"
 ```
-
 然后运行
 
 ```
